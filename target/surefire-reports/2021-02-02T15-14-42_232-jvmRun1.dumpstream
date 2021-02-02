@@ -1,0 +1,897 @@
+# Created on 2021-02-02T15:15:13.485
+[SUREFIRE] std/in stream corrupted
+java.io.IOException: Command NOOP unexpectedly read Void data with length 4.
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:130)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+
+# Created on 2021-02-02T15:20:32.450
+Unexpected IOException with stream: 15:20:32.407 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.lang.IllegalArgumentException: Invalid input provided
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:28) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:39) ~[classes/:?]
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithLessThanOneHourParkingTime(FareCalculatorServiceTest.java:128) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:32.452
+Unexpected IOException with stream: Error reading input. Please enter a valid string for vehicle registration number
+
+
+# Created on 2021-02-02T15:20:32.462
+Unexpected IOException: 7,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareCarWithLessThanOneHourParkingTime,null,Invalid input provided,null,Invalid input provided,FareCalculatorServiceTest.calculateFareCarWithLessThanOneHourParkingTime:128 \00BB IllegalArgument,java.lang.IllegalArgumentException: Invalid input provided\000A\0009at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithLessThanOneHourParkingTime(FareCalculatorServiceTest.java:128)\000A
+
+
+# Created on 2021-02-02T15:20:32.463
+Unexpected IOException: 5,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBikeWithMoreThanADayParkingTime,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.601
+Unexpected IOException with stream: 15:20:32.597 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:49) ~[classes/:?]
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareBikeWithMoreThanADayParkingTime(FareCalculatorServiceTest.java:158) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:32.604
+Unexpected IOException with stream: Error reading input. Please enter a valid string for vehicle registration number
+
+
+# Created on 2021-02-02T15:20:32.608
+Unexpected IOException: 7,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBikeWithMoreThanADayParkingTime,null,No line found,null,No line found,FareCalculatorServiceTest.calculateFareBikeWithMoreThanADayParkingTime:158 \00BB NoSuchElement,java.util.NoSuchElementException: No line found\000A\0009at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareBikeWithMoreThanADayParkingTime(FareCalculatorServiceTest.java:158)\000A
+
+
+# Created on 2021-02-02T15:20:32.610
+Unexpected IOException: 5,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareCar,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.668
+Unexpected IOException with stream: 15:20:32.666 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:39) ~[classes/:?]
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCar(FareCalculatorServiceTest.java:43) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:32.669
+Unexpected IOException with stream: Error reading input. Please enter a valid string for vehicle registration number
+
+
+# Created on 2021-02-02T15:20:32.670
+Unexpected IOException: 7,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareCar,null,No line found,null,No line found,FareCalculatorServiceTest.calculateFareCar:43 \00BB NoSuchElement No line found,java.util.NoSuchElementException: No line found\000A\0009at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCar(FareCalculatorServiceTest.java:43)\000A
+
+
+# Created on 2021-02-02T15:20:32.671
+Unexpected IOException: 5,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBike,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.708
+Unexpected IOException with stream: 15:20:32.706 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:49) ~[classes/:?]
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareBike(FareCalculatorServiceTest.java:58) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:32.708
+Unexpected IOException with stream: Error reading input. Please enter a valid string for vehicle registration number
+
+
+# Created on 2021-02-02T15:20:32.709
+Unexpected IOException: 7,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBike,null,No line found,null,No line found,FareCalculatorServiceTest.calculateFareBike:58 \00BB NoSuchElement No line found,java.util.NoSuchElementException: No line found\000A\0009at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareBike(FareCalculatorServiceTest.java:58)\000A
+
+
+# Created on 2021-02-02T15:20:32.710
+Unexpected IOException: 5,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareUnknownType,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.712
+Unexpected IOException: 6,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareUnknownType,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.713
+Unexpected IOException: 5,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareCarWithMoreThanADayParkingTime,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.751
+Unexpected IOException with stream: 15:20:32.750 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:39) ~[classes/:?]
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithMoreThanADayParkingTime(FareCalculatorServiceTest.java:143) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:32.752
+Unexpected IOException with stream: Error reading input. Please enter a valid string for vehicle registration number
+
+
+# Created on 2021-02-02T15:20:32.753
+Unexpected IOException: 7,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareCarWithMoreThanADayParkingTime,null,No line found,null,No line found,FareCalculatorServiceTest.calculateFareCarWithMoreThanADayParkingTime:143 \00BB NoSuchElement,java.util.NoSuchElementException: No line found\000A\0009at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithMoreThanADayParkingTime(FareCalculatorServiceTest.java:143)\000A
+
+
+# Created on 2021-02-02T15:20:32.755
+Unexpected IOException: 5,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBikeForThirtyMinutesOrLessParkingTime,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.756
+Unexpected IOException: 6,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBikeForThirtyMinutesOrLessParkingTime,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.757
+Unexpected IOException: 5,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBikeWithLessThanOneHourParkingTime,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.779
+Unexpected IOException with stream: 15:20:32.777 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:49) ~[classes/:?]
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareBikeWithLessThanOneHourParkingTime(FareCalculatorServiceTest.java:113) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:32.779
+Unexpected IOException with stream: Error reading input. Please enter a valid string for vehicle registration number
+
+
+# Created on 2021-02-02T15:20:32.780
+Unexpected IOException: 7,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBikeWithLessThanOneHourParkingTime,null,No line found,null,No line found,FareCalculatorServiceTest.calculateFareBikeWithLessThanOneHourParkingTime:113 \00BB NoSuchElement,java.util.NoSuchElementException: No line found\000A\0009at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareBikeWithLessThanOneHourParkingTime(FareCalculatorServiceTest.java:113)\000A
+
+
+# Created on 2021-02-02T15:20:32.782
+Unexpected IOException: 5,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBikeWithFutureInTime,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.783
+Unexpected IOException: 6,1,com.parkit.parkingsystem.FareCalculatorServiceTest,calculateFareBikeWithFutureInTime,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.785
+Unexpected IOException: 2,1,org.junit.platform.surefire.provider.JUnitPlatformProvider,com.parkit.parkingsystem.FareCalculatorServiceTest,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.822
+Unexpected IOException: 1,1,org.junit.platform.surefire.provider.JUnitPlatformProvider,com.parkit.parkingsystem.ParkingServiceTest,null,null,null
+
+
+# Created on 2021-02-02T15:20:32.825
+Unexpected IOException: 5,1,com.parkit.parkingsystem.ParkingServiceTest,checkIfFivePercentReductionIsApplyToCustomerWithBike,null,null,null
+
+
+# Created on 2021-02-02T15:20:33.697
+Unexpected IOException with stream: 15:20:33.696 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.ParkingServiceTest.checkIfFivePercentReductionIsApplyToCustomerWithBike(ParkingServiceTest.java:106) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:33.697
+Unexpected IOException with stream: Error reading input. Please enter a valid string for vehicle registration number
+
+
+# Created on 2021-02-02T15:20:33.698
+Unexpected IOException with stream: java.util.NoSuchElementException: No line found
+
+# Created on 2021-02-02T15:20:33.698
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.699
+Unexpected IOException with stream: 	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+
+# Created on 2021-02-02T15:20:33.699
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.700
+Unexpected IOException with stream: 	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26)
+
+# Created on 2021-02-02T15:20:33.700
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.701
+Unexpected IOException with stream: 	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16)
+
+# Created on 2021-02-02T15:20:33.701
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.701
+Unexpected IOException with stream: 	at com.parkit.parkingsystem.ParkingServiceTest.checkIfFivePercentReductionIsApplyToCustomerWithBike(ParkingServiceTest.java:106)
+
+# Created on 2021-02-02T15:20:33.702
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.702
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+
+# Created on 2021-02-02T15:20:33.703
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.703
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+
+# Created on 2021-02-02T15:20:33.704
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.704
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+# Created on 2021-02-02T15:20:33.705
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.705
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+
+# Created on 2021-02-02T15:20:33.705
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.706
+Unexpected IOException with stream: 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532)
+
+# Created on 2021-02-02T15:20:33.706
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.707
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+
+# Created on 2021-02-02T15:20:33.707
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.708
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171)
+
+# Created on 2021-02-02T15:20:33.708
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.708
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+
+# Created on 2021-02-02T15:20:33.709
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.709
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167)
+
+# Created on 2021-02-02T15:20:33.710
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.710
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114)
+
+# Created on 2021-02-02T15:20:33.711
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.711
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59)
+
+# Created on 2021-02-02T15:20:33.711
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.712
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108)
+
+# Created on 2021-02-02T15:20:33.712
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.713
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+
+# Created on 2021-02-02T15:20:33.713
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.714
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98)
+
+# Created on 2021-02-02T15:20:33.714
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.714
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74)
+
+# Created on 2021-02-02T15:20:33.715
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.715
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+# Created on 2021-02-02T15:20:33.716
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.716
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+
+# Created on 2021-02-02T15:20:33.716
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.717
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112)
+
+# Created on 2021-02-02T15:20:33.717
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.718
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+
+# Created on 2021-02-02T15:20:33.718
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.718
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98)
+
+# Created on 2021-02-02T15:20:33.719
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.719
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74)
+
+# Created on 2021-02-02T15:20:33.720
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.720
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+# Created on 2021-02-02T15:20:33.720
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.721
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+
+# Created on 2021-02-02T15:20:33.721
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.722
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112)
+
+# Created on 2021-02-02T15:20:33.722
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.722
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+
+# Created on 2021-02-02T15:20:33.723
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.724
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98)
+
+# Created on 2021-02-02T15:20:33.724
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.725
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74)
+
+# Created on 2021-02-02T15:20:33.725
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.725
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+
+# Created on 2021-02-02T15:20:33.726
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.726
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+
+# Created on 2021-02-02T15:20:33.727
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.727
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+
+# Created on 2021-02-02T15:20:33.727
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.728
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170)
+
+# Created on 2021-02-02T15:20:33.728
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.729
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154)
+
+# Created on 2021-02-02T15:20:33.729
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.729
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90)
+
+# Created on 2021-02-02T15:20:33.730
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.730
+Unexpected IOException with stream: 	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132)
+
+# Created on 2021-02-02T15:20:33.731
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.731
+Unexpected IOException with stream: 	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111)
+
+# Created on 2021-02-02T15:20:33.731
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.732
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379)
+
+# Created on 2021-02-02T15:20:33.732
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.733
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340)
+
+# Created on 2021-02-02T15:20:33.733
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.734
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+
+# Created on 2021-02-02T15:20:33.734
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.734
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413)
+
+# Created on 2021-02-02T15:20:33.735
+Unexpected IOException with stream: 
+
+
+# Created on 2021-02-02T15:20:33.737
+Unexpected IOException: 7,1,com.parkit.parkingsystem.ParkingServiceTest,checkIfFivePercentReductionIsApplyToCustomerWithBike,null,Fail to apply 5% reduction on the price,null,Fail to apply 5% reduction on the price,ParkingServiceTest.checkIfFivePercentReductionIsApplyToCustomerWithBike:118 Runtime,java.lang.RuntimeException: Fail to apply 5% reduction on the price\000A\0009at com.parkit.parkingsystem.ParkingServiceTest.checkIfFivePercentReductionIsApplyToCustomerWithBike(ParkingServiceTest.java:118)\000A
+
+
+# Created on 2021-02-02T15:20:33.739
+Unexpected IOException: 5,1,com.parkit.parkingsystem.ParkingServiceTest,checkIfItsRegularUser,null,null,null
+
+
+# Created on 2021-02-02T15:20:33.896
+Unexpected IOException: 6,1,com.parkit.parkingsystem.ParkingServiceTest,checkIfItsRegularUser,null,null,null
+
+
+# Created on 2021-02-02T15:20:33.897
+Unexpected IOException: 5,1,com.parkit.parkingsystem.ParkingServiceTest,processExitingVehicleTest,null,null,null
+
+
+# Created on 2021-02-02T15:20:33.898
+Unexpected IOException with stream: Please type the vehicle registration number and press enter key
+
+
+# Created on 2021-02-02T15:20:33.919
+Unexpected IOException with stream: 15:20:33.918 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:39) ~[classes/:?]
+	at com.parkit.parkingsystem.service.ParkingService.processExitingVehicle(ParkingService.java:106) ~[classes/:?]
+	at com.parkit.parkingsystem.ParkingServiceTest.processExitingVehicleTest(ParkingServiceTest.java:70) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:33.920
+Unexpected IOException with stream: Error reading input. Please enter a valid string for vehicle registration number
+
+
+# Created on 2021-02-02T15:20:33.921
+Unexpected IOException with stream: 15:20:33.920 [main] ERROR ParkingService - Unable to process exiting vehicle
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readVehicleRegistrationNumber(InputReaderUtil.java:26) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.regNumberInTheDataBase(FareCalculatorService.java:16) ~[classes/:?]
+	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:39) ~[classes/:?]
+	at com.parkit.parkingsystem.service.ParkingService.processExitingVehicle(ParkingService.java:106) ~[classes/:?]
+	at com.parkit.parkingsystem.ParkingServiceTest.processExitingVehicleTest(ParkingServiceTest.java:70) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+
+
+# Created on 2021-02-02T15:20:33.948
+Unexpected IOException: 8,1,com.parkit.parkingsystem.ParkingServiceTest,processExitingVehicleTest,null,\000AWanted but not invoked:\000AparkingSpotDAO.updateParking(\000A    <any com.parkit.parkingsystem.model.ParkingSpot>\000A);\000A-> at com.parkit.parkingsystem.ParkingServiceTest.processExitingVehicleTest(ParkingServiceTest.java:71)\000AActually\002C there were zero interactions with this mock.\000A,null,\000AWanted but not invoked:\000AparkingSpotDAO.updateParking(\000A    <any com.parkit.parkingsystem.model.ParkingSpot>\000A);\000A-> at com.parkit.parkingsystem.ParkingServiceTest.processExitingVehicleTest(ParkingServiceTest.java:71)\000AActually\002C there were zero interactions with this mock.\000A,ParkingServiceTest.processExitingVehicleTest:71 \000AWanted but not invoked:\000AparkingSpotDAO.updateParking(\000A    <any com.parkit.parkingsystem.model.ParkingSpot>\000A);\000A-> at com.parkit.parkingsystem.ParkingServiceTest.processExitingVehicleTest(ParkingServiceTest.java:71)\000AActually\002C there were zero interactions with this mock.\000A,org.mockito.exceptions.verification.WantedButNotInvoked: \000A\000AWanted but not invoked:\000AparkingSpotDAO.updateParking(\000A    <any com.parkit.parkingsystem.model.ParkingSpot>\000A);\000A-> at com.parkit.parkingsystem.ParkingServiceTest.processExitingVehicleTest(ParkingServiceTest.java:71)\000AActually\002C there were zero interactions with this mock.\000A\000A\0009at com.parkit.parkingsystem.ParkingServiceTest.processExitingVehicleTest(ParkingServiceTest.java:71)\000A
+
+
+# Created on 2021-02-02T15:20:33.948
+Unexpected IOException: 2,1,org.junit.platform.surefire.provider.JUnitPlatformProvider,com.parkit.parkingsystem.ParkingServiceTest,null,null,null
+
+

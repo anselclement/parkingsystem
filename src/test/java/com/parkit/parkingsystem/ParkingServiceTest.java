@@ -1,11 +1,12 @@
 package com.parkit.parkingsystem;
 
-import com.parkit.parkingsystem.config.DataBaseConfig;
+import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
+import com.parkit.parkingsystem.service.FareCalculatorService;
 import com.parkit.parkingsystem.service.ParkingService;
 import com.parkit.parkingsystem.util.InputReaderUtil;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,6 +33,8 @@ public class ParkingServiceTest {
 
     private static ParkingService parkingService;
 
+    @Mock
+    private FareCalculatorService fareCalculatorService;
     @Mock
     private static InputReaderUtil inputReaderUtil;
     @Mock
@@ -54,6 +58,7 @@ public class ParkingServiceTest {
             when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
 
             parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+            fareCalculatorService = new FareCalculatorService();
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to set up test mock objects");
@@ -88,14 +93,27 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void checkIfFivePercentReductionIsApply(){
-        try{
+    public void checkIfFivePercentReductionIsApplyToCustomerWithBike() throws Exception {
+        /*try{*/
+            //GIVEN
+            Date inTime = new Date();
+            inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
+            Date outTime = new Date();
+            Ticket ticket = new Ticket();
+            ticket.setInTime(inTime);
+            ticket.setOutTime(outTime);
+            fareCalculatorService.calculateFare(ticket);
+            when(fareCalculatorService.regNumberInTheDataBase()).thenReturn(true);
 
 
-        }catch (Exception e){
+            //THEN
+            verify(fareCalculatorService.regNumberInTheDataBase());
+            assertThat(ticket.getPrice()).isEqualTo(0.95);
+
+        /*}catch (Exception e){
             e.printStackTrace();
             throw new RuntimeException("Fail to apply 5% reduction on the price");
-        }
+        }*/
     }
 
 }
