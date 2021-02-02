@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TicketDAO {
 
@@ -86,4 +88,29 @@ public class TicketDAO {
         }
         return false;
     }
+
+
+    //TODO : récupérer liste plaque d'immatriculation
+    public List<String> getVehicleRegNumberInTheDataBase(){
+        Connection con = null;
+        List<String> listVehicleRegNumber = new ArrayList<>();
+        try{
+            con = dataBaseConfig.getConnection();
+            PreparedStatement ps = con.prepareStatement(DBConstants.GET_LIST_VEHICLE_REG_NUMBER);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                listVehicleRegNumber.add(rs.getString("VEHICLE_REG_NUMBER"));
+            }
+            dataBaseConfig.closeResultSet(rs);
+            dataBaseConfig.closePreparedStatement(ps);
+        }catch (Exception e){
+            logger.error("Error checking vehicle reg number in the Database", e);
+        }finally{
+            dataBaseConfig.closeConnection(con);
+        }
+
+        return listVehicleRegNumber;
+
+    }
+
 }
