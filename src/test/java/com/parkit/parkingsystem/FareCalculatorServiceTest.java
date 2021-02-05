@@ -65,15 +65,17 @@ public class FareCalculatorServiceTest {
         Date inTime = new Date();
         inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
         Date outTime = new Date();
-        ParkingSpot parkingSpot = new ParkingSpot(1, null,false);
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.DEFAULT,false);
 
         ticket.setInTime(inTime);
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
-        assertThrows(NullPointerException.class, () -> fareCalculatorService.calculateFare(ticket));
+        Throwable thrown = assertThrows(IllegalArgumentException.class, () -> fareCalculatorService.calculateFare(ticket));
+        assertEquals("Unknown Parking Type", thrown.getMessage());
     }
 
     @Test
+    @DisplayName("Test erreur si inTime > outTime pour le Vélo")
     public void calculateFareBikeWithFutureInTime(){
         Date inTime = new Date();
         inTime.setTime( System.currentTimeMillis() + (  60 * 60 * 1000) );
@@ -87,6 +89,7 @@ public class FareCalculatorServiceTest {
     }
 
     @Test
+    @DisplayName("Test erreur si inTime > outTime pour le Voiture")
     public void calculateFareCarWithFutureInTime(){
         Date inTime = new Date();
         inTime.setTime( System.currentTimeMillis() + (  60 * 60 * 1000) );

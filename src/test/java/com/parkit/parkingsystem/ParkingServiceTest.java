@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -107,7 +108,7 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void parkingFull() throws Exception {
+    public void parkingFullTest() throws Exception {
         //GIVEN
         when(inputReaderUtil.readSelection()).thenReturn(2);
         when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
@@ -122,15 +123,6 @@ public class ParkingServiceTest {
         assertThat(parkingService.getNextParkingNumberIfAvailable()).isEqualTo(null);
     }
 
-    /*@Test
-    public void vehicleTypeErrorTest() throws Exception {
-        //GIVEN
-        when(inputReaderUtil.readSelection()).thenReturn(4);
-
-        //THEN
-        assertThrows(InvocationTargetException.class, () -> parkingService.getNextParkingNumberIfAvailable());
-        verify(inputReaderUtil, Mockito.times(1)).readSelection();
-    }*/
 
     /*@Test
     public void checkIfItsRegularUser() {
