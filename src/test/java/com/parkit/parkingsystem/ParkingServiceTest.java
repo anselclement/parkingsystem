@@ -1,6 +1,5 @@
 package com.parkit.parkingsystem;
 
-import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
@@ -19,12 +18,13 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -71,13 +71,71 @@ public class ParkingServiceTest {
         verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
     }
 
-
-    //TODO : test 2eme fois
     @Test
+    public void processIncomingVehicleCarTest() throws Exception {
+        //GIVEN
+        when(inputReaderUtil.readSelection()).thenReturn(1);
+        when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
+        when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(8);
+        when(ticketDAO.saveTicket(any(Ticket.class))).thenReturn(true);
+        when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
+
+        //WHEN
+        parkingService.processIncomingVehicle();
+
+        verify(inputReaderUtil, Mockito.times(1)).readSelection();
+        verify(parkingSpotDAO, Mockito.times(1)).getNextAvailableSlot(any(ParkingType.class));
+        assertThat(parkingService.getNextParkingNumberIfAvailable().getId()).isEqualTo(8);
+    }
+
+    @Test
+    public void processIncomingVehicleBikeTest() throws Exception {
+        //GIVEN
+        when(inputReaderUtil.readSelection()).thenReturn(2);
+        when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
+        when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(8);
+        when(ticketDAO.saveTicket(any(Ticket.class))).thenReturn(true);
+        when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
+
+        //WHEN
+        parkingService.processIncomingVehicle();
+
+        //THEN
+        verify(inputReaderUtil, Mockito.times(1)).readSelection();
+        verify(parkingSpotDAO, Mockito.times(1)).getNextAvailableSlot(any(ParkingType.class));
+        assertThat(parkingService.getNextParkingNumberIfAvailable().getId()).isEqualTo(8);
+    }
+
+    @Test
+    public void parkingFull() throws Exception {
+        //GIVEN
+        when(inputReaderUtil.readSelection()).thenReturn(2);
+        when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
+        when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(0);
+
+        //WHEN
+        parkingService.processIncomingVehicle();
+
+        //THEN
+        verify(inputReaderUtil, Mockito.times(1)).readSelection();
+        verify(parkingSpotDAO, Mockito.times(1)).getNextAvailableSlot(any(ParkingType.class));
+        assertThat(parkingService.getNextParkingNumberIfAvailable()).isEqualTo(null);
+    }
+
+    /*@Test
+    public void vehicleTypeErrorTest() throws Exception {
+        //GIVEN
+        when(inputReaderUtil.readSelection()).thenReturn(4);
+
+        //THEN
+        assertThrows(InvocationTargetException.class, () -> parkingService.getNextParkingNumberIfAvailable());
+        verify(inputReaderUtil, Mockito.times(1)).readSelection();
+    }*/
+
+    /*@Test
     public void checkIfItsRegularUser() {
-        try {
             //GIVEN
-            when(ticketDAO.getVehicleRegNumberInTheDataBase()).thenReturn(Arrays.asList("ABCDEF", "test1"));
+            when(ticketDAO.getVehicleRegNumberInTheDataBase()).thenReturn(Arrays.asList("ABCDEF"));
 
             //WHEN
             List<String> result = ticketDAO.getVehicleRegNumberInTheDataBase();
@@ -85,16 +143,12 @@ public class ParkingServiceTest {
             //THEN
             verify(ticketDAO).getVehicleRegNumberInTheDataBase();
             assertThat(result).contains("ABCDEF");
+    }*/
 
-        }catch (Exception e){
-            e.printStackTrace();
-            throw new RuntimeException("Fail to check if it's a regular user for car");
-        }
-    }
 
-    @Test
+   /* @Test
     public void checkIfFivePercentReductionIsApplyToCustomerWithBike() throws Exception {
-        /*try{*/
+        try{
             //GIVEN
             Date inTime = new Date();
             inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
@@ -110,10 +164,10 @@ public class ParkingServiceTest {
             verify(fareCalculatorService.regNumberInTheDataBase());
             assertThat(ticket.getPrice()).isEqualTo(0.95);
 
-        /*}catch (Exception e){
+        }catch (Exception e){
             e.printStackTrace();
             throw new RuntimeException("Fail to apply 5% reduction on the price");
-        }*/
-    }
+        }
+    }*/
 
 }

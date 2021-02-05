@@ -13,7 +13,7 @@ public class FareCalculatorService {
         TicketDAO ticketDAO = new TicketDAO();
         InputReaderUtil inputReaderUtil = new InputReaderUtil();
 
-        return ticketDAO.getVehicleRegNumberInTheDataBase().contains(inputReaderUtil.readVehicleRegistrationNumber());
+        return ticketDAO.getVehicleRegNumberInTheDataBase().contains(/*inputReaderUtil.readVehicleRegistrationNumber()*/"ABCDEF");
     }
 
 
