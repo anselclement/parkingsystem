@@ -91,7 +91,7 @@ public class TicketDAO {
 
 
     //TODO : récupérer liste plaque d'immatriculation
-    public List<String> getVehicleRegNumberInTheDataBase(){
+    public boolean checkIfRecurringUsers(String vehicleRegNumber){
         Connection con = null;
         List<String> listVehicleRegNumber = new ArrayList<>();
         try{
@@ -103,13 +103,18 @@ public class TicketDAO {
             }
             dataBaseConfig.closeResultSet(rs);
             dataBaseConfig.closePreparedStatement(ps);
+            if(listVehicleRegNumber.contains(vehicleRegNumber)){
+                return true;
+            }else{
+                return false;
+            }
         }catch (Exception e){
             logger.error("Error checking vehicle reg number in the Database", e);
         }finally{
             dataBaseConfig.closeConnection(con);
         }
 
-        return listVehicleRegNumber;
+        return false;
 
     }
 

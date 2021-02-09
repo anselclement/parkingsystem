@@ -5,19 +5,15 @@ import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.model.Ticket;
 import com.parkit.parkingsystem.util.InputReaderUtil;
 
+import java.util.List;
+
 public class FareCalculatorService {
-
-    //TODO :parcours la liste retourne true si valeur plaque rentrer = true
-    public boolean regNumberInTheDataBase() throws Exception {
-
-        TicketDAO ticketDAO = new TicketDAO();
-        InputReaderUtil inputReaderUtil = new InputReaderUtil();
-
-        return ticketDAO.getVehicleRegNumberInTheDataBase().contains(/*inputReaderUtil.readVehicleRegistrationNumber()*/"ABCDEF");
-    }
 
 
     public void calculateFare(Ticket ticket) throws Exception {
+
+        TicketDAO ticketDAO = new TicketDAO();
+
         if( (ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime())) ){
             throw new IllegalArgumentException("Out time provided is incorrect:"+ticket.getOutTime().toString());
         }
@@ -36,7 +32,7 @@ public class FareCalculatorService {
             case CAR: {
                 if(duration <= 0.5){
                     ticket.setPrice(0);
-                }else if (regNumberInTheDataBase()){ //TODO : -5% calcul
+                }else if (ticketDAO.checkIfRecurringUsers(ticket.getVehicleRegNumber())){ //TODO : -5% calcul
                     ticket.setPrice((duration * Fare.CAR_RATE_PER_HOUR) * Fare.REDUCTION_FIVE_PERCENT);
                 }else{
                     ticket.setPrice(duration * Fare.CAR_RATE_PER_HOUR);
@@ -46,7 +42,7 @@ public class FareCalculatorService {
             case BIKE: {
                 if(duration <= 0.5){
                     ticket.setPrice(0);
-                }else if (regNumberInTheDataBase()) { //TODO : -5% calcul
+                }else if (ticketDAO.checkIfRecurringUsers(ticket.getVehicleRegNumber())) { //TODO : -5% calcul
                     ticket.setPrice((duration * Fare.BIKE_RATE_PER_HOUR) * Fare.REDUCTION_FIVE_PERCENT);
                 }else {
                     ticket.setPrice(duration * Fare.BIKE_RATE_PER_HOUR);
