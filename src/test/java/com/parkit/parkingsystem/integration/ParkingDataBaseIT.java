@@ -31,9 +31,9 @@ public class ParkingDataBaseIT {
 
     private static DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
     private static ParkingSpotDAO parkingSpotDAO;
-    private static TicketDAO ticketDAO;
     private static DataBasePrepareService dataBasePrepareService;
     private static Ticket ticket;
+    private static TicketDAO ticketDAO;
 
     @Mock
     private static InputReaderUtil inputReaderUtil;
@@ -73,6 +73,7 @@ public class ParkingDataBaseIT {
         ParkingType  parkingTypeIsACar = ticketDAO.getTicket("ABCDEF").getParkingSpot().getParkingType();
 
         //THEN
+        assertNotNull(ticketInTheDataBase);
         assertThat(ticketInTheDataBase).isEqualTo("ABCDEF");
         assertThat(parkingSpotNotAvailable).isEqualTo(false);
         assertThat(parkingTypeIsACar).isEqualTo(ParkingType.CAR);
@@ -93,6 +94,7 @@ public class ParkingDataBaseIT {
         ParkingType  parkingTypeIsABike = ticketDAO.getTicket("ABCDEF").getParkingSpot().getParkingType();
 
         //THEN
+        assertNotNull(ticketInTheDataBase);
         assertThat(ticketInTheDataBase).isEqualTo("ABCDEF");
         assertThat(parkingSpotNotAvailable).isEqualTo(false);
         assertThat(parkingTypeIsABike).isEqualTo(ParkingType.BIKE);
@@ -103,8 +105,13 @@ public class ParkingDataBaseIT {
     @DisplayName("Test si le prix et l'heure de sortie du véhicule sont bien enregistré en BD")
     public void testParkingLotExit() throws Exception {
         //GIVEN
-        testParkingACar();
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        testParkingACar();
+        ticket = ticketDAO.getTicket("ABCDEF");
+        Date inTime = new Date();
+        inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
+        ticket.setInTime(inTime);
+        ticketDAO.saveTicket(ticket);
 
         //WHEN
         parkingService.processExitingVehicle();
@@ -112,7 +119,7 @@ public class ParkingDataBaseIT {
         Date outTimeIsCorrectlyPopulated = ticketDAO.getTicket("ABCDEF").getOutTime();
 
         //THEN
-        assertThat(fareIsCorrectlyPopulated).isEqualTo(0);
+        assertThat(fareIsCorrectlyPopulated).isEqualTo(1.5);
         assertNotNull(outTimeIsCorrectlyPopulated);
         assertNotNull(fareIsCorrectlyPopulated);
         //TODO: check that the fare generated and out time are populated correctly in the database
@@ -146,9 +153,28 @@ public class ParkingDataBaseIT {
 
 
     @Test
-    @DisplayName("test si un utilisateur récurrent roulant en voiture part avec une réduction de 5%")
-    public void testParkingCarLotExitWithReduction(){
+    @DisplayName("test si un utilisateur récurrent roulant en voiture part avec le bon prix pour une durée de 1h")
+    public void testParkingCarLotExitWithReduction() throws Exception {
+        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        testParkingACar();
+        ticket = ticketDAO.getTicket("ABCDEF");
+        Date inTime = new Date();
+        inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
+        ticket.setInTime(inTime);
+        ticket.setRecurrentUser(true);
+        ticketDAO.saveTicket(ticket);
 
+
+
+        //WHEN
+        parkingService.processExitingVehicle();
+        double fareIsCorrectlyPopulated = ticketDAO.getTicket("ABCDEF").getPrice();
+        Date outTimeIsCorrectlyPopulated = ticketDAO.getTicket("ABCDEF").getOutTime();
+
+        //THEN
+        assertThat(fareIsCorrectlyPopulated).isEqualTo(1.42);
+        assertNotNull(outTimeIsCorrectlyPopulated);
+        assertNotNull(fareIsCorrectlyPopulated);
     }
 
     @Test
