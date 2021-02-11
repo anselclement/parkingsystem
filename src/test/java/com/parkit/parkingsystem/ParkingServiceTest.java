@@ -43,7 +43,7 @@ public class ParkingServiceTest {
     @BeforeEach
     private void setUpPerTest() {
         try {
-            /*when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");*/
+            when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
 
             ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
             Ticket ticket = new Ticket();
@@ -77,6 +77,7 @@ public class ParkingServiceTest {
         when(inputReaderUtil.readSelection()).thenReturn(1);
         when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
         when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(8);
+        when(ticketDAO.checkIfRecurringUsers("ABCDEF")).thenReturn(true);
         when(ticketDAO.saveTicket(any(Ticket.class))).thenReturn(true);
         when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
 
@@ -86,7 +87,7 @@ public class ParkingServiceTest {
         //THEN
         verify(inputReaderUtil, Mockito.times(1)).readSelection();
         verify(parkingSpotDAO, Mockito.times(1)).getNextAvailableSlot(any(ParkingType.class));
-        verify(ticketDAO.saveTicket(any(Ticket.class)));
+        verify(inputReaderUtil, Mockito.times(1)).readVehicleRegistrationNumber();
         assertThat(parkingService.getNextParkingNumberIfAvailable().getId()).isEqualTo(8);
     }
 
@@ -106,6 +107,7 @@ public class ParkingServiceTest {
         //THEN
         verify(inputReaderUtil, Mockito.times(1)).readSelection();
         verify(parkingSpotDAO, Mockito.times(1)).getNextAvailableSlot(any(ParkingType.class));
+        verify(inputReaderUtil, Mockito.times(1)).readVehicleRegistrationNumber();
         assertThat(parkingService.getNextParkingNumberIfAvailable().getId()).isEqualTo(8);
     }
 
@@ -162,6 +164,7 @@ public class ParkingServiceTest {
     }*/
 
     @Test
+    @DisplayName("Vérifie qu'un utilisateur est bien présent en BD")
     public void checkIfItsRecurringUserTest() {
             //GIVEN
             when(ticketDAO.checkIfRecurringUsers("ABCDEF")).thenReturn(true);
@@ -173,8 +176,8 @@ public class ParkingServiceTest {
             assertThat(result).isTrue();
     }
 
-    /*@Test
-    @DisplayName("Vérifie si l'utilisateur d'un vélo a le droit à une réduction de 5%)
+    @Test
+    @DisplayName("Vérifie si l'utilisateur d'un vélo a le droit à une réduction de 5%")
     public void checkIfFivePercentReductionIsApplyToCustomerWithBike() throws Exception {
         try{
             //GIVEN
@@ -187,8 +190,7 @@ public class ParkingServiceTest {
             ticket.setOutTime(outTime);
             ticket.setParkingSpot(parkingSpot);
             ticket.setVehicleRegNumber("ABCDEF");
-            TicketDAO mock = org.mockito.Mockito.mock(TicketDAO.class);
-            when(mock.checkIfRecurringUsers("ABCDEF")).thenReturn(true);
+            ticket.setRecurrentUser(true);
 
             //WHEN
             fareCalculatorService.calculateFare(ticket);
@@ -201,10 +203,10 @@ public class ParkingServiceTest {
             e.printStackTrace();
             throw new RuntimeException("Fail to apply 5% reduction on the price");
         }
-    }*/
+    }
 
-    /*@Test
-    @DisplayName("Vérifie si l'utilisateur d'une voiture a le droit à une réduction de 5%)
+    @Test
+    @DisplayName("Vérifie si l'utilisateur d'une voiture a le droit à une réduction de 5%")
     public void checkIfFivePercentReductionIsApplyToCustomerWithCar() throws Exception {
         try{
         //GIVEN
@@ -217,19 +219,17 @@ public class ParkingServiceTest {
             ticket.setOutTime(outTime);
             ticket.setParkingSpot(parkingSpot);
             ticket.setVehicleRegNumber("ABCDEF");
-            TicketDAO mock = org.mockito.Mockito.mock(TicketDAO.class);
-            when(mock.checkIfRecurringUsers("ABCDEF")).thenReturn(true);
+            ticket.setRecurrentUser(true);
 
             //WHEN
             fareCalculatorService.calculateFare(ticket);
 
-
             //THEN
-            assertThat(ticket.getPrice()).isEqualTo(0.95);
+            assertThat(ticket.getPrice()).isEqualTo(1.42);
 
         }catch (Exception e){
             e.printStackTrace();
             throw new RuntimeException("Fail to apply 5% reduction on the price");
         }
-    }*/
+    }
 }

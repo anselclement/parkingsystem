@@ -90,7 +90,6 @@ public class TicketDAO {
     }
 
 
-    //TODO : récupérer liste plaque d'immatriculation
     public boolean checkIfRecurringUsers(String vehicleRegNumber){
         Connection con = null;
         List<String> listVehicleRegNumber = new ArrayList<>();
@@ -113,9 +112,6 @@ public class TicketDAO {
         }finally{
             dataBaseConfig.closeConnection(con);
         }
-
         return false;
-
     }
-
 }
