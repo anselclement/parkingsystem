@@ -1,5 +1,6 @@
 package com.parkit.parkingsystem.unitaire.service;
 
+import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
@@ -147,7 +148,7 @@ public class ParkingServiceTest {
             fareCalculatorService.calculateFare(ticket);
 
             //THEN
-            assertThat(ticket.getPrice()).isEqualTo(0.95);
+            assertThat(ticket.getPrice()).isEqualTo( (double) Math.round((( Fare.BIKE_RATE_PER_HOUR) * Fare.REDUCTION_FIVE_PERCENT)*100)/100);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -175,7 +176,7 @@ public class ParkingServiceTest {
             fareCalculatorService.calculateFare(ticket);
 
             //THEN
-            assertThat(ticket.getPrice()).isEqualTo(1.42);
+            assertThat(ticket.getPrice()).isEqualTo( (double) Math.round((( Fare.CAR_RATE_PER_HOUR) * Fare.REDUCTION_FIVE_PERCENT)*100)/100);
 
         }catch (Exception e){
             e.printStackTrace();
