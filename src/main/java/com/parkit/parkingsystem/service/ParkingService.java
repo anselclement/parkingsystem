@@ -45,7 +45,10 @@ public class ParkingService {
                 ticket.setInTime(inTime);
                 ticket.setOutTime(null);
                 ticket.setRecurrentUser(ticketDAO.checkIfRecurringUsers(vehicleRegNumber));
-                //print
+                if(ticket.getRecurrentUser() == true){
+                    System.out.println("Welcome back! As a recurring user of our parking lot, you'll benefit from a 5% discount");
+                }
+                //print if message
                 ticketDAO.saveTicket(ticket);
                 System.out.println("Generated Ticket and saved in DB");
                 System.out.println("Please park your vehicle in spot number:"+parkingSpot.getId());

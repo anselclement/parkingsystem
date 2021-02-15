@@ -77,7 +77,6 @@ public class ParkingDataBaseIT {
         assertThat(ticketInTheDataBase).isEqualTo("ABCDEF");
         assertThat(parkingSpotNotAvailable).isEqualTo(false);
         assertThat(parkingTypeIsACar).isEqualTo(ParkingType.CAR);
-        //TODO: check that a ticket is actually saved in DB and Parking table is updated with availability
     }
 
     @Test
@@ -98,7 +97,6 @@ public class ParkingDataBaseIT {
         assertThat(ticketInTheDataBase).isEqualTo("ABCDEF");
         assertThat(parkingSpotNotAvailable).isEqualTo(false);
         assertThat(parkingTypeIsABike).isEqualTo(ParkingType.BIKE);
-        //TODO: check that a ticket is actually saved in DB and Parking table is updated with availability
     }
 
     @Test
@@ -122,35 +120,7 @@ public class ParkingDataBaseIT {
         assertThat(fareIsCorrectlyPopulated).isEqualTo(1.5);
         assertNotNull(outTimeIsCorrectlyPopulated);
         assertNotNull(fareIsCorrectlyPopulated);
-        //TODO: check that the fare generated and out time are populated correctly in the database
     }
-
-    /*@Test
-    @DisplayName("erreur lors du choix du vehicle")
-    public void testErrorVehicleChoice() throws Exception {
-        // GIVEN
-        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-
-        // WHEN
-        when(inputReaderUtil.readSelection()).thenReturn(4);
-
-        // THEN
-        Throwable thrown = assertThrows(IllegalArgumentException.class, () -> inputReaderUtil.readVehicleRegistrationNumber());
-        assertEquals("Error parsing user input for type of vehicle", thrown.getMessage());
-    }*/
-
-    /*@Test
-    @DisplayName("erreur lors de la lecture de la plaque d'immatriculation")
-    public void testUnknownVehicle() throws Exception {
-        // GIVEN
-        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-
-        when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn(null);
-
-        // THEN
-        assertThrows(IllegalArgumentException.class, () -> inputReaderUtil.readVehicleRegistrationNumber());
-    }*/
-
 
     @Test
     @DisplayName("test si un utilisateur récurrent roulant en voiture part avec le bon prix pour une durée de 1h")
@@ -179,7 +149,27 @@ public class ParkingDataBaseIT {
 
     @Test
     @DisplayName("test si un utilisateur récurrent roulant en vélo part avec une réduction de 5%")
-    public void testParkingBikeLotExitWithReduction(){
+    public void testParkingBikeLotExitWithReduction() throws Exception {
+        when(inputReaderUtil.readSelection()).thenReturn(2);
+        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        parkingService.processIncomingVehicle();
+        ticket = ticketDAO.getTicket("ABCDEF");
+        Date inTime = new Date();
+        inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
+        ticket.setInTime(inTime);
+        ticket.setRecurrentUser(true);
+        ticketDAO.saveTicket(ticket);
 
+
+
+        //WHEN
+        parkingService.processExitingVehicle();
+        double fareIsCorrectlyPopulated = ticketDAO.getTicket("ABCDEF").getPrice();
+        Date outTimeIsCorrectlyPopulated = ticketDAO.getTicket("ABCDEF").getOutTime();
+
+        //THEN
+        assertThat(fareIsCorrectlyPopulated).isEqualTo(0.95);
+        assertNotNull(outTimeIsCorrectlyPopulated);
+        assertNotNull(fareIsCorrectlyPopulated);
     }
 }

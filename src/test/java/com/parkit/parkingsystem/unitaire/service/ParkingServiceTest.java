@@ -1,4 +1,4 @@
-package com.parkit.parkingsystem;
+package com.parkit.parkingsystem.unitaire.service;
 
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.dao.ParkingSpotDAO;
@@ -22,7 +22,6 @@ import org.mockito.quality.Strictness;
 import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -128,54 +127,6 @@ public class ParkingServiceTest {
         assertThat(parkingService.getNextParkingNumberIfAvailable()).isEqualTo(null);
     }
 
-    /*@Test
-    @DisplayName("erreur lors de la lecture de la plaque d'immatriculation")
-    public void UnknownVehicleTest() throws Exception {
-        //GIVEN
-        when(inputReaderUtil.readSelection()).thenReturn(2);
-        when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn(null);
-        when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(8);
-        when(ticketDAO.saveTicket(any(Ticket.class))).thenReturn(true);
-        when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
-
-        //WHEN
-        parkingService.processIncomingVehicle();
-
-        //THEN
-        Throwable thrown = assertThrows(IllegalArgumentException.class, () -> inputReaderUtil.readVehicleRegistrationNumber());
-        assertEquals("Invalid input provided", thrown.getMessage());
-    }*/
-
-    /*@Test
-    @DisplayName("erreur lors du choix du vehicle")
-    public void ErrorVehicleChoiceTest() throws Exception {
-        //GIVEN
-        when(inputReaderUtil.readSelection()).thenReturn(4);
-        when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
-        when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(8);
-        when(ticketDAO.saveTicket(any(Ticket.class))).thenReturn(true);
-        when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
-
-        //WHEN
-        parkingService.processIncomingVehicle();
-
-        //THEN
-        assertThrows(IllegalArgumentException.class, () -> parkingService.getNextParkingNumberIfAvailable());
-    }*/
-
-    @Test
-    @DisplayName("Vérifie qu'un utilisateur est bien présent en BD")
-    public void checkIfItsRecurringUserTest() {
-            //GIVEN
-            when(ticketDAO.checkIfRecurringUsers("ABCDEF")).thenReturn(true);
-
-            boolean result = ticketDAO.checkIfRecurringUsers("ABCDEF");
-
-            //THEN
-            verify(ticketDAO).checkIfRecurringUsers("ABCDEF");
-            assertThat(result).isTrue();
-    }
-
     @Test
     @DisplayName("Vérifie si l'utilisateur d'un vélo a le droit à une réduction de 5%")
     public void checkIfFivePercentReductionIsApplyToCustomerWithBike() throws Exception {
@@ -194,7 +145,6 @@ public class ParkingServiceTest {
 
             //WHEN
             fareCalculatorService.calculateFare(ticket);
-
 
             //THEN
             assertThat(ticket.getPrice()).isEqualTo(0.95);
