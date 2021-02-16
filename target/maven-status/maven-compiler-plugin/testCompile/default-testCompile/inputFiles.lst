@@ -1,5 +1,8 @@
-C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\FareCalculatorServiceTest.java
+C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\unitaire\dao\ParkingSpotDAOTest.java
+C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\unitaire\dao\TicketDAOTest.java
 C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\integration\config\DataBaseTestConfig.java
+C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\unitaire\service\FareCalculatorServiceTest.java
 C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\integration\service\DataBasePrepareService.java
-C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\ParkingServiceTest.java
+C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\unitaire\util\InputReaderUtilTest.java
+C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\unitaire\service\ParkingServiceTest.java
 C:\Users\clement\IdeaProjects\parkingsystem\src\test\java\com\parkit\parkingsystem\integration\ParkingDataBaseIT.java
