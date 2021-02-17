@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Date;
@@ -162,7 +163,6 @@ public class FareCalculatorServiceTest {
         assertEquals( (24 * Fare.BIKE_RATE_PER_HOUR) , ticket.getPrice());
     }
 
-
     @Test
     @DisplayName("Calcule le prix du stationnement pour le type de véhicule voiture pour une durée < 30min")
     public void calculateFareCarForThirtyMinutesOrLessParkingTime() throws Exception {
@@ -193,4 +193,59 @@ public class FareCalculatorServiceTest {
         assertEquals( (0 * Fare.CAR_RATE_PER_HOUR) , ticket.getPrice());
     }
 
+    @Test
+    @DisplayName("Vérifie si l'utilisateur d'un vélo a le droit à une réduction de 5%")
+    public void checkIfFivePercentReductionIsApplyToCustomerWithBike() throws Exception {
+        try{
+            //GIVEN
+            Date inTime = new Date();
+            ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
+            inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
+            Date outTime = new Date();
+            Ticket ticket = new Ticket();
+            ticket.setInTime(inTime);
+            ticket.setOutTime(outTime);
+            ticket.setParkingSpot(parkingSpot);
+            ticket.setVehicleRegNumber("ABCDEF");
+            ticket.setRecurrentUser(true);
+
+            //WHEN
+            fareCalculatorService.calculateFare(ticket);
+
+            //THEN
+            assertThat(ticket.getPrice()).isEqualTo( (double) Math.round((( Fare.BIKE_RATE_PER_HOUR) * Fare.REDUCTION_FIVE_PERCENT)*100)/100);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new RuntimeException("Fail to apply 5% reduction on the price");
+        }
+    }
+
+    @Test
+    @DisplayName("Vérifie si l'utilisateur d'une voiture a le droit à une réduction de 5%")
+    public void checkIfFivePercentReductionIsApplyToCustomerWithCar() throws Exception {
+        try{
+            //GIVEN
+            Date inTime = new Date();
+            ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
+            inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
+            Date outTime = new Date();
+            Ticket ticket = new Ticket();
+            ticket.setInTime(inTime);
+            ticket.setOutTime(outTime);
+            ticket.setParkingSpot(parkingSpot);
+            ticket.setVehicleRegNumber("ABCDEF");
+            ticket.setRecurrentUser(true);
+
+            //WHEN
+            fareCalculatorService.calculateFare(ticket);
+
+            //THEN
+            assertThat(ticket.getPrice()).isEqualTo( (double) Math.round((( Fare.CAR_RATE_PER_HOUR) * Fare.REDUCTION_FIVE_PERCENT)*100)/100);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new RuntimeException("Fail to apply 5% reduction on the price");
+        }
+    }
 }
