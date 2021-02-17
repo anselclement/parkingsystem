@@ -123,7 +123,7 @@ public class ParkingDataBaseIT {
     @DisplayName("test si un utilisateur récurrent roulant en voiture part avec le bon prix pour une durée de 1h")
     public void testParkingCarLotExitWithReduction() throws Exception {
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-        testParkingACar();
+        parkingService.processIncomingVehicle();
         ticket = ticketDAO.getTicket("ABCDEF");
         Date inTime = new Date();
         inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
