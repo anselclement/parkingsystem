@@ -32,8 +32,6 @@ public class ParkingServiceTest {
     private static ParkingService parkingService;
 
     @Mock
-    private FareCalculatorService fareCalculatorService;
-    @Mock
     private static InputReaderUtil inputReaderUtil;
     @Mock
     private static ParkingSpotDAO parkingSpotDAO;
@@ -56,7 +54,6 @@ public class ParkingServiceTest {
             when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
 
             parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-            fareCalculatorService = new FareCalculatorService();
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to set up test mock objects");
@@ -71,7 +68,7 @@ public class ParkingServiceTest {
     }
 
     @Test
-    @DisplayName("Vérifie qu'une voiture rentre bien dans le parking et que le ticket est sauvegardé")
+    @DisplayName("Vérifie qu'une voiture rentre bien dans le parking")
     public void processIncomingVehicleCarTest() throws Exception {
         //GIVEN
         when(inputReaderUtil.readSelection()).thenReturn(1);
@@ -92,7 +89,7 @@ public class ParkingServiceTest {
     }
 
     @Test
-    @DisplayName("Vérifie qu'un vélo rentre bien dans le parking et que le ticket est sauvegardé")
+    @DisplayName("Vérifie qu'un vélo rentre bien dans le parking")
     public void processIncomingVehicleBikeTest() throws Exception {
         //GIVEN
         when(inputReaderUtil.readSelection()).thenReturn(2);
